@@ -1,0 +1,1022 @@
+{
+  "siswa": [
+    {
+      "id": "1777534064034bicv",
+      "username": "1001",
+      "nama": "Anam",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "B",
+        "1": "Padi dan kapas",
+        "2": "A,C",
+        "3": {
+          "1": "A",
+          "2": "B",
+          "3": "C"
+        },
+        "4": "C"
+      }
+    },
+    {
+      "id": "1777534064038kum1",
+      "username": "1002",
+      "nama": "Anis",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "Dari hasil cahaya matahari ",
+        "1": "B",
+        "2": "B",
+        "3": "A,C",
+        "4": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        }
+      }
+    },
+    {
+      "id": "177753406403995fp",
+      "username": "1003",
+      "nama": "Ambar",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 100,
+      "nilaiEsai": 0,
+      "totalNilai": 100,
+      "na": 60,
+      "jawabanSiswa": {
+        "0": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "1": "A,C",
+        "2": "B",
+        "3": "B",
+        "4": "... "
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "1": "A,C",
+        "2": "B",
+        "3": "B"
+      }
+    },
+    {
+      "id": "1777534064040mt7y",
+      "username": "1004",
+      "nama": "Anggie",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 100,
+      "nilaiEsai": 0,
+      "totalNilai": 100,
+      "na": 60,
+      "jawabanSiswa": {
+        "0": "B",
+        "1": "B",
+        "2": "fotosintesis membantumu berkembangnya tumbuhan",
+        "3": "A,C",
+        "4": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        }
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "B",
+        "1": "B",
+        "2": "fotosintesis membantumu berkembsngnys"
+      }
+    },
+    {
+      "id": "17775340640404e5q",
+      "username": "1005",
+      "nama": "Budi",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 100,
+      "nilaiEsai": 0,
+      "totalNilai": 100,
+      "na": 60,
+      "jawabanSiswa": {
+        "0": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "1": "B",
+        "2": "A,C",
+        "3": "proses pertumbuhan tanaman",
+        "4": "B"
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "1": "B",
+        "2": "A,C",
+        "3": "proses pertum"
+      }
+    },
+    {
+      "id": "1777534064041aslc",
+      "username": "1006",
+      "nama": "Bondan",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 100,
+      "nilaiEsai": 0,
+      "totalNilai": 100,
+      "na": 60,
+      "jawabanSiswa": {
+        "0": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "1": "B",
+        "2": "Proses pertumbuhan tanaman",
+        "3": "B",
+        "4": "A,C"
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "1": "B",
+        "2": "Proses pertumbuhan tanaman"
+      }
+    },
+    {
+      "id": "1777534064041u3of",
+      "username": "1007",
+      "nama": "Bagus",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 100,
+      "nilaiEsai": 0,
+      "totalNilai": 100,
+      "na": 60,
+      "jawabanSiswa": {
+        "0": "B",
+        "1": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "2": "Masa pertumbuhan tanaman ",
+        "3": "A,C",
+        "4": "B"
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "Masa pertumbuhan tanaman ",
+        "1": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "2": "A,C",
+        "3": "B"
+      }
+    },
+    {
+      "id": "1777534064042pxuj",
+      "username": "1008",
+      "nama": "Bintang",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 50,
+      "nilaiEsai": 0,
+      "totalNilai": 50,
+      "na": 30,
+      "jawabanSiswa": {
+        "0": {
+          "1": "C",
+          "2": "B",
+          "3": "A"
+        },
+        "1": "B,D",
+        "2": "Pertumbuhan tanaman",
+        "3": "B",
+        "4": "B"
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 1,
+      "logPelanggaran": [
+        "2026-05-04T04:15:06.706Z"
+      ],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": {
+          "1": "C",
+          "2": "B",
+          "3": "A"
+        },
+        "1": "B,D",
+        "2": "Pertumbuhan tanaman"
+      }
+    },
+    {
+      "id": "1777534064042fkca",
+      "username": "1009",
+      "nama": "Cika",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 50,
+      "nilaiEsai": 0,
+      "totalNilai": 50,
+      "na": 30,
+      "jawabanSiswa": {
+        "0": "A",
+        "1": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "2": "B",
+        "3": "D",
+        "4": "Hewan sapi monyet babi kucing ikan burung tikus "
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "A",
+        "1": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "2": "B",
+        "3": "D",
+        "4": "Hewan sapi monyet "
+      }
+    },
+    {
+      "id": "1777534064043fl69",
+      "username": "1010",
+      "nama": "Cici",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {
+        "0": {
+          "1": "A",
+          "2": "B",
+          "3": "C"
+        },
+        "1": "B,C",
+        "2": "C",
+        "3": "A",
+        "4": "Jelas apa yang  di maksud  dengan  fotosintesis pada  tumbuhan yaitu"
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": {
+          "1": "A",
+          "2": "B",
+          "3": "C"
+        },
+        "1": "B,C",
+        "2": "C",
+        "3": "A",
+        "4": "Jelas apa yang  di maksud  dengan  fotosintesis pada  tumbuhan yaitu"
+      }
+    },
+    {
+      "id": "1777534064044kecc",
+      "username": "1011",
+      "nama": "Cantika",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 75,
+      "nilaiEsai": 0,
+      "totalNilai": 75,
+      "na": 45,
+      "jawabanSiswa": {
+        "0": "B",
+        "1": "A,C",
+        "2": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "3": "proses biologis dimana tumbuhan hijau,alga,dan beberapa bakteri menggunakan energi cahaya matahari untuk mengubah air(H2o) dan karbon dioksida (CO2) menjadi glukosa(karbohidrat)dan oksigen(O2)",
+        "4": "A"
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "B",
+        "1": "A,C",
+        "2": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "3": "proses biologis dimana tumbuhan hijau,alga,dan beberapa bakteri menggunakan energi cahaya matahari untuk mengubah air(H2o) dan karbon dioksida (CO2) menjadi glukosa(karbohidrat)dan oksigen(O2)",
+        "4": "A"
+      }
+    },
+    {
+      "id": "1777534064044mhwu",
+      "username": "1012",
+      "nama": "Cempaka",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 50,
+      "nilaiEsai": 0,
+      "totalNilai": 50,
+      "na": 30,
+      "jawabanSiswa": {
+        "0": "proses biologis dimana tumbuhan hijau,alga,dan beberapa bakteri menggunakan energi cahata matahari untuk mengubah air(H2o)dan karbon dioksida(CO2) menjadi glukosa(karbohidrat)dan oksigen(O2)",
+        "1": "A",
+        "2": "B",
+        "3": "A",
+        "4": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        }
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 1,
+      "logPelanggaran": [
+        "2026-05-04T04:16:53.867Z"
+      ],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "proses biologis dimana tumbuhan hijau,alga,dan beberapa bakteri menggunakan energi cahata matahari untuk mengubah air(H2o)dan karbon dioksida(CO2) menjadi glukosa(karbohidrat)dan oksigen(O2)",
+        "1": "A",
+        "2": "B",
+        "3": "A",
+        "4": {
+          "1": "C"
+        }
+      }
+    },
+    {
+      "id": "1777534064044cqfh",
+      "username": "1013",
+      "nama": "Dara",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 75,
+      "nilaiEsai": 0,
+      "totalNilai": 75,
+      "na": 45,
+      "jawabanSiswa": {
+        "0": "Proses tunggi badan",
+        "1": "B",
+        "2": "A,C",
+        "3": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        }
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "Proses tunggi badan",
+        "1": "B",
+        "2": "A,C",
+        "3": {
+          "1": "C"
+        }
+      }
+    },
+    {
+      "id": "1777534064044f4ur",
+      "username": "1014",
+      "nama": "Desi",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false
+    },
+    {
+      "id": "1777534064044390f",
+      "username": "1015",
+      "nama": "Danang",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 75,
+      "nilaiEsai": 0,
+      "totalNilai": 75,
+      "na": 45,
+      "jawabanSiswa": {
+        "0": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "1": "B",
+        "2": "B",
+        "3": "A",
+        "4": "sinar matahari"
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "1": "B",
+        "2": "B",
+        "3": "A",
+        "4": ""
+      }
+    },
+    {
+      "id": "1777534064045hdmn",
+      "username": "1016",
+      "nama": "Dimas",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 100,
+      "nilaiEsai": 0,
+      "totalNilai": 100,
+      "na": 60,
+      "jawabanSiswa": {
+        "0": "B",
+        "1": "A,C",
+        "2": "dari sinar matahari ",
+        "3": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "4": "B"
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "B",
+        "1": "A,C",
+        "2": "dari sinar matahari ",
+        "3": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "4": "A"
+      }
+    },
+    {
+      "id": "17775340640458ou0",
+      "username": "1017",
+      "nama": "Edi",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 75,
+      "nilaiEsai": 0,
+      "totalNilai": 75,
+      "na": 45,
+      "jawabanSiswa": {
+        "0": "B",
+        "1": "A",
+        "2": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "3": "dari sinar matahari",
+        "4": "A,C"
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "B",
+        "1": "A",
+        "2": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "3": "dari sinar matahari",
+        "4": "A,C"
+      }
+    },
+    {
+      "id": "1777534064045h6gr",
+      "username": "1018",
+      "nama": "Endang",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 75,
+      "nilaiEsai": 0,
+      "totalNilai": 75,
+      "na": 45,
+      "jawabanSiswa": {
+        "0": "A",
+        "1": "B",
+        "2": "Pertumbuhan",
+        "3": "A,C",
+        "4": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        }
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "A",
+        "1": "B",
+        "2": "Pertumbuhan",
+        "3": "A,C",
+        "4": {
+          "1": "C",
+          "2": "A"
+        }
+      }
+    },
+    {
+      "id": "1777534064045v9p5",
+      "username": "1019",
+      "nama": "Eman",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 50,
+      "nilaiEsai": 0,
+      "totalNilai": 50,
+      "na": 30,
+      "jawabanSiswa": {
+        "0": "A",
+        "1": "B",
+        "2": "proses biologis dimana tumbuhan hijau,alga,dan beberapa bakteri menggunakan energi cahaya matahari untuh mengubah air(H2o) dan karbon dioksida(CO2) menjadi glukosa (karbohidrat) dan oksigen (O2)",
+        "3": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "4": "A"
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 1,
+      "logPelanggaran": [
+        "2026-05-04T04:16:23.570Z"
+      ],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "A",
+        "1": "B",
+        "2": "proses biologis dimana tumbuhan hijau,alga,dan beberapa bakteri menggunakan energi cahaya matahari untuh mengubah air(H2o) dan karbon dioksida(CO2) menjadi glukosa (karbohidrat) dan oksigen (O2)",
+        "3": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        }
+      }
+    },
+    {
+      "id": "1777534064045igo5",
+      "username": "1020",
+      "nama": "Elang",
+      "kelas": "X",
+      "status": "Selesai",
+      "nilaiOtomatis": 25,
+      "nilaiEsai": 0,
+      "totalNilai": 25,
+      "na": 15,
+      "jawabanSiswa": {
+        "0": "B",
+        "1": "A",
+        "2": "dari matahari",
+        "3": "A"
+      },
+      "paketId": 1777533851165,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "B",
+        "1": "A",
+        "2": "dari matahari"
+      }
+    }
+  ],
+  "bankSoal": [
+    {
+      "id": 1777533851165,
+      "mapel": "SIMULASI ",
+      "kelas": "X",
+      "daftarSoal": [
+        {
+          "id": 1777533851161.5642,
+          "konten": "</strong> Ibu kota negara Indonesia saat ini adalah...",
+          "pilihan": [
+            "Surabaya",
+            "Jakarta",
+            "Bandung",
+            "Medan"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1777533851165.7117,
+          "konten": "</strong> Manakah yang merupakan komponen perangkat keras komputer? (Jawaban lebih dari satu)",
+          "pilihan": [
+            "CPU",
+            "Windows",
+            "RAM",
+            "Microsoft Office"
+          ],
+          "kunci": "A,C"
+        },
+        {
+          "id": 1777533851165.808,
+          "konten": "</strong>  <img alt=\"C:\\Users\\PC\\AppData\\Local\\Microsoft\\Windows\\INetCache\\Content.MSO\\C9CA9449.tmp\" src=\"/images/1777533851155-853am1.png\" />Pernyataan: Matahari terbit dari sebelah barat.",
+          "pilihan": [
+            "Benar",
+            "Salah"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1777533851165.3208,
+          "konten": "Pasangkanlah ibukota provinsi berikut ini dengan benar: | Indonesia | Jepang | Prancis |",
+          "pilihan": [
+            "Tokyo",
+            "Paris",
+            "Jakarta"
+          ],
+          "kunci": "1-C,2-A,3-B"
+        },
+        {
+          "id": 1777533851165.5823,
+          "konten": "</strong> Jelaskan apa yang dimaksud dengan fotosintesis pada tumbuhan!",
+          "pilihan": [],
+          "kunci": "ESAI"
+        }
+      ]
+    },
+    {
+      "id": 1777878357684,
+      "mapel": "MTK",
+      "kelas": "X",
+      "daftarSoal": [
+        {
+          "id": 1777878357684.0576,
+          "konten": "Nilai <img src=\"/images/1777878357669-iv93tm.png\" /> adalah …",
+          "pilihan": [
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "kunci": "A"
+        },
+        {
+          "id": 1777878357684.1714,
+          "konten": "Soal berikut anfjdvuer .<br>D <img src=\"/images/1777878357679-l1y3x3.png\" />",
+          "pilihan": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "kunci": "B"
+        }
+      ]
+    },
+    {
+      "id": 1777878992195,
+      "mapel": "B JAWA",
+      "kelas": "X",
+      "daftarSoal": [
+        {
+          "id": 1777878992195.0857,
+          "konten": "Ing ngisor iki kang kalebu tembung kriya yaiku <strong>ꦲ ꦫ ꦏ ꦢ ꦠ ꦱ ꦮ ꦗ ꦪ ꦚ ꦩ ꦒ ꦧ ꦛ ꦯ<br /> </strong>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ<strong> </strong>",
+          "pilihan": [
+            "Mangan",
+            "Kucing",
+            "Sepur",
+            "Gunung"
+          ],
+          "kunci": "A"
+        },
+        {
+          "id": 1777878992195.2808,
+          "konten": "Tembung lingga yaiku tembung sing...",
+          "pilihan": [
+            "Wis owah saka wangun asline",
+            "Dhasar utawa durung owah",
+            "Digawe saka rong tembung",
+            "Digawe saka telung tembung utawa luwih"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1777878992195.466,
+          "konten": "Ukara \"Dheweke mlaku menyang pasar\" yaiku ukara...",
+          "pilihan": [
+            "Pasif",
+            "Aktif",
+            "Imperatif",
+            "Interogatif"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1777878992195.5486,
+          "konten": "Kanggone tembung \"dilakoni\" iku wujude...",
+          "pilihan": [
+            "Aktif",
+            "Pasif",
+            "Imperatif",
+            "Interogatif"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1777878992195.151,
+          "konten": "Tembung rangkep yaiku tembung kang...",
+          "pilihan": [
+            "Kaping pindho utawa luwih",
+            "Digawe saka tembung asing",
+            "Owah saka tembung kriya",
+            "Digawe saka ukara negative"
+          ],
+          "kunci": "A"
+        },
+        {
+          "id": 1777878992195.5432,
+          "konten": "Tembung \"turu\" ing krama alus yaiku...",
+          "pilihan": [
+            "Sare",
+            "Tangi",
+            "Kesah",
+            "Panggih"
+          ],
+          "kunci": "A"
+        },
+        {
+          "id": 1777878992195.7542,
+          "konten": "Ing ngisor iki kang kalebu tembung krama lugu yaiku...",
+          "pilihan": [
+            "Dhahar",
+            "Mangan",
+            "Madang",
+            "Neda"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1777878992195.269,
+          "konten": "Ing ngisor iki kang kalebu tembung krama inggil yaiku...",
+          "pilihan": [
+            "Tangi",
+            "Mlebu",
+            "Tumbas",
+            "Lenggah"
+          ],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.8052,
+          "konten": "\"Kowe lunga menyang pasar\" ing basa krama alus yaiku...",
+          "pilihan": [
+            "Sampeyan tindak menyang pasar",
+            "Kowe lunga pasar",
+            "Panjenengan mlaku menyang pasar",
+            "Sampeyan tindak mrana"
+          ],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.3694,
+          "konten": "Tembung \"bocah\" ing krama alus yaiku...",
+          "pilihan": [
+            "Cah",
+            "Lare",
+            "Putra",
+            "Kanca"
+          ],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.027,
+          "konten": "Aksara Jawa \"<img src=\"/images/1777878992187-tgaq2s.png\" /> \" macahe...<br />A. Ba<br />B. Pa<br />C. Ta<br />D. Sa",
+          "pilihan": [],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.8398,
+          "konten": "Aksara Jawa \" <img alt=\"Ga (aksara Jawa) | Ensiklopedia | Civitasbook.com\" src=\"/images/1777878992191-pzn3iw.png\" /> \" macahe...<br />A. Ga<br />B. Ba<br />C. Pa<br />D. Na",
+          "pilihan": [],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.0156,
+          "konten": "Tanda diakritik ing aksara Jawa kang nggambarake swara \"é\" yaiku...<br />A. Cecak<br />B. Wulu<br />C. Layar<br />D. Taling",
+          "pilihan": [],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.0142,
+          "konten": "Aksara jawa iki “<img alt=\"gajah gedhe) tulisen nganggo aksara Jawa!​ - Brainly.co.id\" src=\"/images/1777878992193-zzel8x.png\" />” yaiku...<br />A. Gajah gedhe<br />B. Gajah Cilik<br />C. Gajah Madha<br />D. Gajah Mungkur",
+          "pilihan": [],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.5876,
+          "konten": "Aksara Wilangan angka iki “<img alt=\"Berkas:Jawa Pa Murda.png - Wikipedia bahasa Indonesia ...\" src=\"/images/1777878992193-7re8ac.png\" /> “ yaiku...<br />A. 2<br />B. 5<br />C. 7<br />D. 8",
+          "pilihan": [],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.2256,
+          "konten": "Geguritan iku puisi kang...<br />A. Temane bebas lan ora kaiket paugeran<br />B. Diiket aturan baku<br />C. Saka basa manca<br />D. Digawe kanggo pawarta",
+          "pilihan": [],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.771,
+          "konten": "Ing geguritan, cacahe larik ing saben bait bisa...<br />A. Papat<br />B. Siji<br />C. Ora mesti<br />D. Loro",
+          "pilihan": [],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.153,
+          "konten": "Pupuh sing nadane sedhih lan mengharukan yaiku...<br />A. Maskumambang<br />B. Dhandhanggula<br />C. Kinanthi<br />D. Gambuh",
+          "pilihan": [],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.312,
+          "konten": "Ukara \"Adhem ayem tentrem ing desaku\" kalebu wangun...<br />A. Geguritan<br />B. Parikan<br />C. Tembang<br />D. Cerita",
+          "pilihan": [],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.6445,
+          "konten": "Tembang dolanan sing misuwur yaiku...<br />A. Suwe ora jamu<br />B. Pucung<br />C. Dhandhanggula<br />D. Sinom",
+          "pilihan": [],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.006,
+          "konten": "Tembang macapat sing nduweni guru lagu \"u\" yaiku...<br />A. Dhandhanggula<br />B. Mijil<br />C. Kinanthi<br />D. Pucung",
+          "pilihan": [],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.7832,
+          "konten": "Tembang macapat sing nadane sumedhih yaiku...<br />A. Maskumambang<br />B. Gambuh<br />C. Megatruh<br />D. Sinom",
+          "pilihan": [],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.0344,
+          "konten": "\"Ana ing desa tentrem lan ayem\" iku tuladha tembang...<br />A. Pangkur<br />B. Kinanthi<br />C. Mijil<br />D. Durma",
+          "pilihan": [],
+          "kunci": ""
+        },
+        {
+          "id": 1777878992195.01,
+          "konten": "Tembang macapat kang tema petunjuk utawa nasihat yaiku...<br />A. Sinom<br />B. Asmaradana<br />C. Maskumambang<br />D. Pangkur",
+          "pilihan": [],
+          "kunci": ""
+        }
+      ]
+    }
+  ],
+  "ujian": {
+    "aktifPaket": [
+      {
+        "paketId": 1777878357684,
+        "kelas": "X",
+        "bobotPG": 100,
+        "bobotEsai": 0
+      }
+    ],
+    "durasi": 50,
+    "tampilkanNilai": false,
+    "maxPelanggaran": 3,
+    "pesanPelanggaran": "Anda terdeteksi curang, silakan lapor ke pengawas",
+    "deteksiPelanggaran": true,
+    "alarmType": "warning",
+    "acakSoal": true,
+    "durasiPerPaket": true,
+    "alarmDurasi": 5500
+  },
+  "pengaturan": {
+    "namaSekolah": "SMK PEMBANGUNAN SURABAYA",
+    "namaAplikasi": "SIMULASI SAS",
+    "ukuranSekolah": 23,
+    "ukuranAplikasi": 17,
+    "tema": "blue",
+    "temaLogin": "green",
+    "layoutLogin": "modern"
+  },
+  "admin": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123",
+      "nama": "Administrator",
+      "role": "superadmin",
+      "email": "admin@smkpembangunan.sch.id",
+      "aktif": true
+    },
+    {
+      "id": "2",
+      "username": "guru1",
+      "password": "guru123",
+      "nama": "Guru Pengawas",
+      "role": "admin",
+      "email": "guru1@smkpembangunan.sch.id",
+      "aktif": true
+    }
+  ],
+  "login-admin": [
+    {
+      "id": "1",
+      "login": false
+    },
+    {
+      "id": "2",
+      "login": false
+    }
+  ]
+}
