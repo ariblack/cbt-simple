@@ -1008,5 +1008,15 @@
       "email": "guru1@smkpembangunan.sch.id",
       "aktif": true
     }
+  ],
+  "login-admin": [
+    {
+      "id": "1",
+      "login": false
+    },
+    {
+      "id": "2",
+      "login": false
+    }
   ]
 }

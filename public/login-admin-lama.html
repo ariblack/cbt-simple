@@ -276,43 +276,9 @@
     setLoading(true);
 
     try {
-      // Cek koneksi json-server dulu
-      let serverOnline = true;
-      try {
-        const ping = await fetch(`${DB_URL}/admin`, { signal: AbortSignal.timeout(2000) });
-        serverOnline = ping.ok;
-      } catch {
-        serverOnline = false;
-      }
-
-      // Fallback: jika server offline, cek kredensial default
-      if (!serverOnline) {
-        const FALLBACK = [
-          { username: 'admin', password: 'admin123', nama: 'Administrator', role: 'superadmin', email: '' }
-        ];
-        const fb = FALLBACK.find(a => a.username === username && a.password === password);
-        if (fb) {
-          sessionStorage.setItem('cbt_admin_session', JSON.stringify({
-            id: '0', username: fb.username, nama: fb.nama,
-            role: fb.role, email: fb.email, loginAt: new Date().toISOString()
-          }));
-          showAlert('✓ Selamat datang, ' + fb.nama + '! (mode offline)', 'success');
-          setTimeout(() => {
-            const redirectTo = sessionStorage.getItem('cbt_redirect_after_login');
-            sessionStorage.removeItem('cbt_redirect_after_login');
-            window.location.href = redirectTo || 'admin.html';
-          }, 1500);
-          return;
-        }
-        showAlert('⚠ JSON Server offline & username/password tidak cocok.');
-        setLoading(false);
-        return;
-      }
-
-      // Ambil semua admin dari json-server, filter di client
-      // (json-server tidak bisa filter boolean aktif=true via query string)
+      // Ambil data admin dari json-server — filter by username
       const res = await fetch(
-        `${DB_URL}/admin?username=${encodeURIComponent(username)}`,
+        `${DB_URL}/admin?username=${encodeURIComponent(username)}&aktif=true`,
         { signal: AbortSignal.timeout(4000) }
       );
 
@@ -320,11 +286,8 @@
 
       const admins = await res.json();
 
-      // Filter aktif & cocokkan password di sisi client
-      const match = admins.find(a =>
-        a.password === password &&
-        a.aktif !== false   // anggap aktif jika field tidak ada
-      );
+      // Cocokkan password (plaintext — untuk produksi gunakan hashing)
+      const match = admins.find(a => a.password === password);
 
       if (!match) {
         showAlert('Username atau password salah. Silakan coba lagi.');
@@ -362,9 +325,7 @@
 
     } catch (err) {
       if (err.name === 'TimeoutError' || err.name === 'AbortError') {
-        showAlert('⚠ Koneksi ke JSON Server timeout.\nPastikan json-server berjalan:\njson-server --watch db.json --port 3000');
-      } else if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError')) {
-        showAlert('⚠ Tidak dapat terhubung ke JSON Server (port 3000).\nJalankan: json-server --watch db.json --port 3000');
+        showAlert('Koneksi ke JSON Server timeout. Pastikan server berjalan di port 3000.');
       } else {
         showAlert('Error: ' + err.message);
       }
