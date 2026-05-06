@@ -962,15 +962,19 @@
     }
   ],
   "ujian": {
-    "aktifPaket": [
+    "paket": [
       {
-        "paketId": 1777878357684,
+        "paketId": 1777878992195,
         "kelas": "X",
-        "bobotPG": 100,
-        "bobotEsai": 0
+        "bobotPG": 60,
+        "bobotEsai": 40,
+        "durasi": 60,
+        "jamMulai": "07:00",
+        "jamSelesai": "08:00",
+        "aktif": true,
+        "tanggalUjian": "2026-05-08"
       }
     ],
-    "durasi": 50,
     "tampilkanNilai": false,
     "maxPelanggaran": 3,
     "pesanPelanggaran": "Anda terdeteksi curang, silakan lapor ke pengawas",

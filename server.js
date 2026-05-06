@@ -19,8 +19,7 @@ try {
         siswa: [],
         bankSoal: [],
         ujian: {
-            aktifPaket: [],
-            durasi: 60,
+            paket: [],
             tampilkanNilai: true,
             maxPelanggaran: 3,
             pesanPelanggaran: 'Anda terdeteksi berpindah tab atau aplikasi. Ujian Anda dihentikan. Serahkan perangkat Anda kepada pengawas ujian.',
@@ -28,10 +27,10 @@ try {
             alarmType: 'beep',
             alarmDurasi: 3000,
             acakSoal: false,
-            durasiPerPaket: false
+            durasiPerPaket: true
         },
         pengaturan: {
-            namaSekolah: "SMP MUHAMMADIYAH 14",
+            namaSekolah: "SMK PEMBANGUNAN SURABAYA",
             namaAplikasi: "CBT Online",
             ukuranSekolah: 18,
             ukuranAplikasi: 13,
@@ -45,16 +44,16 @@ try {
     fs.writeFileSync('db.json', JSON.stringify({
         siswa: [], bankSoal: [],
         ujian: {
-            aktifPaket: [], durasi: 60, tampilkanNilai: true,
+            paket: [], tampilkanNilai: true,
             maxPelanggaran: 3,
             pesanPelanggaran: 'Anda terdeteksi berpindah tab atau aplikasi. Ujian Anda dihentikan.',
             deteksiPelanggaran: true,
             alarmType: 'beep',
             alarmDurasi: 3000,
             acakSoal: false,
-            durasiPerPaket: false
+            durasiPerPaket: true
         },
-        pengaturan: { namaSekolah: "SMP MUHAMMADIYAH 14", namaAplikasi: "CBT Online", ukuranSekolah: 18, ukuranAplikasi: 13, tema: "green", temaLogin: "green", layoutLogin: "modern" }
+        pengaturan: { namaSekolah: "SMK PEMBANGUNAN SURABAYA", namaAplikasi: "CBT Online", ukuranSekolah: 18, ukuranAplikasi: 13, tema: "green", temaLogin: "green", layoutLogin: "modern" }
     }, null, 2));
 }
 
@@ -93,7 +92,7 @@ function sc(key, val) { cache.time = Date.now(); cache[key] = val; }
 function hitungNA(siswa, ujian) {
     const pg = Number(siswa.nilaiOtomatis) || 0;
     const esai = Number(siswa.nilaiEsai) || 0;
-    const cfg = (ujian.aktifPaket || []).find(p => p.paketId == siswa.paketId && p.kelas === siswa.kelas);
+    const cfg = (ujian.paket || []).find(p => p.paketId == siswa.paketId && p.kelas === siswa.kelas);
     const bPG = cfg ? Number(cfg.bobotPG || 60) : 60;
     const bEsai = cfg ? Number(cfg.bobotEsai || 40) : 40;
     return (pg * bPG / 100) + (esai * bEsai / 100);
@@ -132,10 +131,11 @@ app.get('/admin/stats', (req, res) => {
         const siswa = db.get('siswa').value();
         const bankSoal = db.get('bankSoal').value();
         const ujian = db.get('ujian').value();
-        const aktifPaket = ujian.aktifPaket || [];
+        const aktifpaket = db.get('paket').value();
         const selesai = siswa.filter(s => s.status === 'Selesai').length;
         const belum = siswa.filter(s => s.status !== 'Selesai' && s.status !== 'Diblokir').length;
         const diblokir = siswa.filter(s => s.status === 'Diblokir').length;
+        const aktif = aktifpaket.filter(s => s.aktif === true).length;
         let totalNa = 0, countNa = 0;
         let dist = { A: 0, B: 0, C: 0, D: 0 };
         let kelasMap = {};
@@ -160,7 +160,7 @@ app.get('/admin/stats', (req, res) => {
         })).sort((a, b) => a.kelas.localeCompare(b.kelas));
         res.json({
             success: true, totalSiswa: siswa.length, totalBankSoal: bankSoal.length,
-            totalUjianAktif: aktifPaket.length, siswaSelesai: selesai,
+            totalUjianAktif: aktifpaket.length, siswaSelesai: selesai,
             siswaBelum: belum, siswaDiblokir: diblokir,
             rataRataNilai: countNa > 0 ? (totalNa / countNa).toFixed(2) : 0,
             distribusiNilai: dist, rekapKelas: rekapKelas
@@ -228,10 +228,10 @@ app.get('/review-jawaban/:id', (req, res) => {
 // POST endpoints untuk pengaturan ujian
 app.post('/simpan-semua-ujian', (req, res) => {
     try {
-        const { durasi, tampilkanNilai, aktifPaket, acakSoal, durasiPerPaket } = req.body;
-        if (!Array.isArray(aktifPaket)) return res.status(400).json({ success: false, message: 'Data tidak valid' });
+        const { durasi, tampilkanNilai, paket, acakSoal, durasiPerPaket } = req.body;
+        if (!Array.isArray(paket)) return res.status(400).json({ success: false, message: 'Data tidak valid' });
         const banks = db.get('bankSoal').value();
-        for (let item of aktifPaket) {
+        for (let item of paket) {
             if (!banks.find(b => b.id === Number(item.paketId))) return res.status(400).json({ success: false, message: 'Paket ID ' + item.paketId + ' tidak ditemukan' });
             const bPG = Number(item.bobotPG) || 0, bEsai = Number(item.bobotEsai) || 0;
             if (bPG + bEsai !== 100) return res.status(400).json({ success: false, message: 'Bobot harus 100%' });
@@ -240,7 +240,7 @@ app.post('/simpan-semua-ujian', (req, res) => {
         if (tampilkanNilai !== undefined) db.set('ujian.tampilkanNilai', !!tampilkanNilai).write();
         if (acakSoal !== undefined) db.set('ujian.acakSoal', !!acakSoal).write();
         if (durasiPerPaket !== undefined) db.set('ujian.durasiPerPaket', !!durasiPerPaket).write();
-        db.set('ujian.aktifPaket', aktifPaket).write();
+        db.set('ujian.paket', paket).write();
         flushCache();
         res.json({ success: true });
     } catch (e) {
@@ -312,7 +312,7 @@ app.post('/login-siswa', (req, res) => {
         if (user.status === 'Selesai') return res.status(403).json({ success: false, message: 'Anda sudah mengerjakan ujian ini!' });
         if (user.status === 'Diblokir') return res.status(403).json({ success: false, message: 'Ujian Anda diblokir karena pelanggaran. Hubungi admin.' });
 
-        const paketForKelas = (ujianConfig.aktifPaket || []).find(p => p.kelas === user.kelas);
+        const paketForKelas = (ujianConfig.paket || []).find(p => p.kelas === user.kelas);
         if (!paketForKelas) return res.status(400).json({ success: false, message: 'Belum ada ujian aktif untuk kelas ' + user.kelas });
 
         const paketSoal = db.get('bankSoal').find({ id: Number(paketForKelas.paketId) }).value();
@@ -365,7 +365,7 @@ app.post('/simpan-hasil', (req, res) => {
         if (siswa.status === 'Diblokir') return res.status(403).json({ success: false, message: 'Siswa diblokir' });
         const ujian = db.get('ujian').value();
         const pg = Number(nilaiOtomatis) || 0;
-        const cfg = (ujian.aktifPaket || []).find(p => p.paketId == paketId && p.kelas === siswa.kelas);
+        const cfg = (ujian.paket || []).find(p => p.paketId == paketId && p.kelas === siswa.kelas);
         const bPG = cfg ? Number(cfg.bobotPG || 60) : 60;
         const na = (pg * bPG / 100);
         db.get('siswa').find({ id: userId }).assign({
@@ -398,7 +398,7 @@ app.post('/update-nilai-esai', (req, res) => {
         const ujian = db.get('ujian').value();
         const pg = Number(siswa.nilaiOtomatis) || 0;
         const esai = Math.min(100, Math.max(0, Number(nilaiEsai) || 0));
-        const cfg = (ujian.aktifPaket || []).find(p => p.paketId == siswa.paketId && p.kelas === siswa.kelas);
+        const cfg = (ujian.paket || []).find(p => p.paketId == siswa.paketId && p.kelas === siswa.kelas);
         const bPG = cfg ? Number(cfg.bobotPG || 60) : 60;
         const bEsai = cfg ? Number(cfg.bobotEsai || 40) : 40;
         const na = (pg * bPG / 100) + (esai * bEsai / 100);
