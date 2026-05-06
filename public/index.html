@@ -410,7 +410,7 @@ function handleLogin(e) {
     fetchWithTimeout('/login-siswa', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ Username: Username, username: Username })
+        body: JSON.stringify({ username: Username })
     })
     .then(function(response) { return response.json(); })
     .then(function(result) {
