@@ -127,6 +127,19 @@ app.get('/get-pengaturan', (req, res) => {
     res.json(d);
 });
 
+// FITUR 6: Hapus Semua Siswa
+app.post('/hapus-semua-siswa', (req, res) => {
+    try {
+        const count = db.get('siswa').value().length;
+        db.set('siswa', []).write();
+        flushCache();
+        log(`SEMUA SISWA DIHAPUS (${count} data) oleh admin`);
+        res.json({ success: true, message: `${count} data siswa berhasil dihapus` });
+    } catch (e) {
+        res.status(500).json({ success: false, message: e.message });
+    }
+});
+
 app.get('/admin/stats', (req, res) => {
     try {
         const siswa = db.get('siswa').value();
