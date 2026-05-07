@@ -1,0 +1,169 @@
+// ============================================================
+//  Prisma Schema — CBT System SKEMBA
+//  SMK Pembangunan Surabaya
+//  Generated from db.json
+// ============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"   // ganti ke "mysql" atau "sqlite" sesuai kebutuhan
+  //url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────────────────────
+//  ADMIN
+// ─────────────────────────────────────────────
+model Admin {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  password  String
+  nama      String
+  role      RoleAdmin @default(admin)
+  email     String?
+  aktif     Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("admin")
+}
+
+enum RoleAdmin {
+  superadmin
+  admin
+}
+
+// ─────────────────────────────────────────────
+//  SISWA
+// ─────────────────────────────────────────────
+model Siswa {
+  id               String   @id @default(cuid())
+  username         String   @unique          // NIS / nomor ujian
+  nama             String
+  kelas            String
+
+  // Hasil ujian
+  status           StatusSiswa @default(Belum)
+  nilaiOtomatis    Float    @default(0)      // nilai PG otomatis
+  nilaiEsai        Float    @default(0)      // nilai esai dari guru
+  totalNilai       Float    @default(0)
+  na               Float    @default(0)      // nilai akhir
+
+  // Jawaban (disimpan sebagai JSON)
+  jawabanSiswa     Json     @default("{}")   // jawaban final
+  jawabanAutoSave  Json     @default("{}")   // auto-save saat mengerjakan
+
+  // Pengawasan
+  paketId          String?                   // FK ke BankSoal.id (string)
+  pelanggaran      Int      @default(0)
+  logPelanggaran   Json     @default("[]")   // array timestamp pelanggaran
+  selesaiOtomatis  Boolean  @default(false)  // selesai karena waktu habis/pelanggaran
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@map("siswa")
+}
+
+enum StatusSiswa {
+  Belum
+  Mengerjakan
+  Selesai
+}
+
+// ─────────────────────────────────────────────
+//  BANK SOAL
+// ─────────────────────────────────────────────
+model BankSoal {
+  id          String   @id @default(cuid())
+  mapel       String                          // mata pelajaran
+  kelas       String
+  daftarSoal  Soal[]
+  aktifPaket  AktifPaket[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("bank_soal")
+}
+
+// ─────────────────────────────────────────────
+//  SOAL
+// ─────────────────────────────────────────────
+model Soal {
+  id        String   @id @default(cuid())
+  konten    String   @db.Text               // isi soal (bisa HTML)
+  pilihan   Json                            // array pilihan jawaban
+  kunci     String                          // jawaban benar (misal "A", "B", ...)
+
+  bankSoal  BankSoal @relation(fields: [bankSoalId], references: [id], onDelete: Cascade)
+  bankSoalId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("soal")
+}
+
+// ─────────────────────────────────────────────
+//  UJIAN (pengaturan global)
+// ─────────────────────────────────────────────
+model Ujian {
+  id                  Int      @id @default(autoincrement())
+  durasi              Int      @default(50)          // menit
+  tampilkanNilai      Boolean  @default(false)
+  maxPelanggaran      Int      @default(3)
+  pesanPelanggaran    String   @default("Anda terdeteksi curang, silakan lapor ke pengawas")
+  deteksiPelanggaran  Boolean  @default(true)
+  alarmType           String   @default("warning")
+  acakSoal            Boolean  @default(true)
+  durasiPerPaket      Boolean  @default(true)
+  alarmDurasi         Int      @default(5500)        // detik sebelum waktu habis
+
+  aktifPaket          AktifPaket[]
+
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@map("ujian")
+}
+
+// ─────────────────────────────────────────────
+//  AKTIF PAKET (konfigurasi ujian per kelas)
+// ─────────────────────────────────────────────
+model AktifPaket {
+  id          String   @id @default(cuid())
+  kelas       String
+  bobotPG     Float    @default(100)
+  bobotEsai   Float    @default(0)
+
+  ujian       Ujian    @relation(fields: [ujianId], references: [id])
+  ujianId     Int
+
+  bankSoal    BankSoal @relation(fields: [bankSoalId], references: [id])
+  bankSoalId  String
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([ujianId, kelas])              // 1 paket per kelas per ujian
+  @@map("aktif_paket")
+}
+
+// ─────────────────────────────────────────────
+//  PENGATURAN APLIKASI
+// ─────────────────────────────────────────────
+model Pengaturan {
+  id               Int    @id @default(autoincrement())
+  namaSekolah      String @default("SMK PEMBANGUNAN SURABAYA")
+  namaAplikasi     String @default("SIMULASI SAS")
+  ukuranSekolah    Int    @default(23)     // font size header sekolah
+  ukuranAplikasi   Int    @default(17)     // font size nama aplikasi
+  tema             String @default("blue") // tema admin panel
+  temaLogin        String @default("green")
+  layoutLogin      String @default("modern")
+
+  @@map("pengaturan")
+}
