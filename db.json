@@ -16,8 +16,15 @@
       "logPelanggaran": [],
       "selesaiOtomatis": false,
       "jawabanAutoSave": {
-        "0": "B",
-        "1": "C"
+        "0": "xxcxcxc",
+        "1": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "2": "B",
+        "3": "A,C",
+        "4": "B"
       }
     },
     {
@@ -1126,32 +1133,40 @@
       ]
     }
   ],
-  "ujian": [
-    {
-      "paket": [
-        {
-          "paketId": 1777533851165,
-          "kelas": "X",
-          "bobotPG": 100,
-          "bobotEsai": 0,
-          "durasi": 60,
-          "jamMulai": "12:35:00",
-          "jamSelesai": "13:35:00",
-          "aktif": true,
-          "tanggalUjian": "2026-05-08"
-        }
-      ],
-      "tampilkanNilai": false,
-      "maxPelanggaran": 3,
-      "pesanPelanggaran": "Anda terdeteksi curang, silakan lapor ke pengawas",
-      "deteksiPelanggaran": true,
-      "alarmType": "warning",
-      "acakSoal": true,
-      "durasiPerPaket": true,
-      "alarmDurasi": 5500,
-      "id": 1
-    }
-  ],
+  "ujian": {
+    "paket": [
+      {
+        "paketId": 1777533851165,
+        "kelas": "X",
+        "bobotPG": 60,
+        "bobotEsai": 40,
+        "durasi": 60,
+        "jamMulai": "10:05",
+        "jamSelesai": "11:05",
+        "tanggalUjian": "2026-05-07",
+        "aktif": true
+      },
+      {
+        "paketId": 1778044619636,
+        "kelas": "X",
+        "bobotPG": 100,
+        "bobotEsai": 0,
+        "durasi": 30,
+        "jamMulai": "11:07",
+        "jamSelesai": "11:37",
+        "tanggalUjian": "2026-05-07",
+        "aktif": true
+      }
+    ],
+    "tampilkanNilai": false,
+    "maxPelanggaran": 3,
+    "pesanPelanggaran": "Anda terdeteksi curang, silakan lapor ke pengawas",
+    "deteksiPelanggaran": true,
+    "alarmType": "warning",
+    "alarmDurasi": 5500,
+    "acakSoal": true,
+    "durasiPerPaket": true
+  },
   "pengaturan": {
     "namaSekolah": "SMK PEMBANGUNAN SURABAYA",
     "namaAplikasi": "SIMULASI SAS",

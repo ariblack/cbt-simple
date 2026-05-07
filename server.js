@@ -13,7 +13,37 @@ const { Server } = require('socket.io');
 const adapter = new FileSync('db.json');
 const db = low(adapter);
 
-// Inisialisasi database dengan default termasuk fitur baru
+// ── Inisialisasi & Migrasi Database ─────────────────────────────────────────
+// Langkah 1: migrasi TERLEBIH DAHULU jika ujian masih array (format lama)
+// Harus dilakukan SEBELUM db.defaults() agar defaults tidak konflik
+(function migrasiDbStartup() {
+    try {
+        const rawUjian = db.get('ujian').value();
+        if (Array.isArray(rawUjian)) {
+            const ex = rawUjian[0] || {};
+            const normalized = {
+                paket:              ex.paket              || [],
+                tampilkanNilai:     ex.tampilkanNilai     !== undefined ? ex.tampilkanNilai : true,
+                maxPelanggaran:     ex.maxPelanggaran     || 3,
+                pesanPelanggaran:   ex.pesanPelanggaran   || 'Anda terdeteksi berpindah tab atau aplikasi.',
+                deteksiPelanggaran: ex.deteksiPelanggaran !== false,
+                alarmType:          ex.alarmType          || 'beep',
+                alarmDurasi:        ex.alarmDurasi        || 3000,
+                acakSoal:           ex.acakSoal           || false,
+                durasiPerPaket:     ex.durasiPerPaket     !== false
+            };
+            // Tulis langsung ke file agar lowdb state dan file selalu sinkron
+            const state = db.getState();
+            state.ujian = normalized;
+            db.setState(state).write();
+            console.log('[STARTUP] Migrasi ujian array → object selesai. Paket:', normalized.paket.length);
+        }
+    } catch(e) {
+        console.error('[STARTUP] Migrasi gagal:', e.message);
+    }
+})();
+
+// Langkah 2: set defaults untuk key yang belum ada
 try {
     db.defaults({
         siswa: [],
@@ -22,7 +52,7 @@ try {
             paket: [],
             tampilkanNilai: true,
             maxPelanggaran: 3,
-            pesanPelanggaran: 'Anda terdeteksi berpindah tab atau aplikasi. Ujian Anda dihentikan. Serahkan perangkat Anda kepada pengawas ujian.',
+            pesanPelanggaran: 'Anda terdeteksi berpindah tab atau aplikasi. Ujian Anda dihentikan.',
             deteksiPelanggaran: true,
             alarmType: 'beep',
             alarmDurasi: 3000,
@@ -89,10 +119,54 @@ function gc(key) {
 }
 function sc(key, val) { cache.time = Date.now(); cache[key] = val; }
 
+// ─── HELPER: baca konfigurasi ujian dari db ──────────────────────────────────
+// Migrasi array→object sudah dijamin saat startup, fungsi ini tinggal baca.
+function getUjianConfig() {
+    const raw = db.get('ujian').value();
+    // Safety fallback: jika entah bagaimana masih array, ambil item pertama
+    if (Array.isArray(raw)) return raw[0] || { paket: [] };
+    return raw || { paket: [] };
+}
+
+// ─── HELPER: cek apakah paket aktif berdasarkan waktu server real-time ────────
+// ATURAN: paket lolos HANYA jika ketiga kondisi terpenuhi:
+//   1. aktif === true  (admin secara eksplisit mengaktifkan)
+//   2. tanggalUjian cocok dengan tanggal server hari ini (jika diisi)
+//   3. jam server sekarang berada di dalam rentang jamMulai–jamSelesai (jika diisi)
+function isPaketAktifSekarang(paket) {
+    // Guard 1 — harus aktif=true secara eksplisit (bukan truthy, bukan undefined)
+    if (paket.aktif !== true) return false;
+
+    const now = new Date();
+    const nowMenit = now.getHours() * 60 + now.getMinutes();
+
+    // Guard 2 — tanggal ujian harus cocok (jika kolom diisi)
+    if (paket.tanggalUjian) {
+        const [ty, tm, td] = paket.tanggalUjian.split('-').map(Number);
+        if (
+            now.getFullYear() !== ty ||
+            now.getMonth() + 1 !== tm ||
+            now.getDate()    !== td
+        ) return false;
+    }
+
+    // Guard 3 — waktu sekarang harus di dalam rentang jamMulai–jamSelesai
+    if (paket.jamMulai && paket.jamSelesai) {
+        const [hM, mM] = paket.jamMulai.split(':').map(Number);
+        const [hS, mS] = paket.jamSelesai.split(':').map(Number);
+        const mulaiMenit   = hM * 60 + mM;
+        const selesaiMenit = hS * 60 + mS;
+        if (nowMenit < mulaiMenit || nowMenit >= selesaiMenit) return false;
+    }
+
+    return true;
+}
+
 function hitungNA(siswa, ujian) {
     const pg = Number(siswa.nilaiOtomatis) || 0;
     const esai = Number(siswa.nilaiEsai) || 0;
-    const cfg = (ujian.paket || []).find(p => p.paketId == siswa.paketId && p.kelas === siswa.kelas);
+    const paket = Array.isArray(ujian) ? (ujian[0] || {}).paket : (ujian.paket || []);
+    const cfg = (paket || []).find(p => p.paketId == siswa.paketId && p.kelas === siswa.kelas);
     const bPG = cfg ? Number(cfg.bobotPG || 60) : 60;
     const bEsai = cfg ? Number(cfg.bobotEsai || 40) : 40;
     return (pg * bPG / 100) + (esai * bEsai / 100);
@@ -110,7 +184,8 @@ function normalizeKunci(raw) {
 
 // GET endpoints
 app.get('/get-ujian', (req, res) => {
-    let d = gc('ujian'); if (!d) { d = db.get('ujian').value(); sc('ujian', d); }
+    let d = gc('ujian');
+    if (!d) { d = getUjianConfig(); sc('ujian', d); }
     res.json(d);
 });
 app.get('/get-siswa', (req, res) => {
@@ -126,7 +201,56 @@ app.get('/get-pengaturan', (req, res) => {
     res.json(d);
 });
 
-// FITUR 6: Hapus Semua Siswa
+// ─── ENDPOINT: Cek status ujian aktif untuk kelas tertentu (tanpa login) ─────
+// Dipakai halaman index siswa untuk info jadwal sebelum login
+// GET /status-ujian?kelas=X
+app.get('/status-ujian', (req, res) => {
+    try {
+        const kelas = (req.query.kelas || '').toString().trim();
+        const ujianConfig = getUjianConfig();
+        const semuaPaket = (ujianConfig.paket || []);
+
+        // Filter: hanya paket yang kelas-nya cocok DAN aktif=true oleh admin
+        const paketAktifAdmin = semuaPaket.filter(p =>
+            (!kelas || p.kelas === kelas) && p.aktif === true
+        );
+
+        // Dari yang aktif, cek mana yang sedang berlangsung sekarang
+        const sedangBerlangsung = paketAktifAdmin.filter(p => isPaketAktifSekarang(p));
+
+        res.json({
+            success: true,
+            adaUjianAktif: sedangBerlangsung.length > 0,
+            paketAktif: sedangBerlangsung.map(p => ({
+                paketId: p.paketId,
+                kelas: p.kelas,
+                jamMulai: p.jamMulai,
+                jamSelesai: p.jamSelesai,
+                tanggalUjian: p.tanggalUjian || null,
+                durasi: p.durasi
+            })),
+            // Jadwal berikutnya dari yang aktif admin (hanya hari ini atau masa depan)
+            jadwalBerikutnya: paketAktifAdmin
+                .filter(p => {
+                    if (isPaketAktifSekarang(p)) return false; // sedang berlangsung, bukan jadwal
+                    if (!p.tanggalUjian) return true; // tanpa tanggal: selalu tampilkan
+                    const today = new Date().toISOString().slice(0, 10);
+                    return p.tanggalUjian >= today; // hanya hari ini atau masa depan
+                })
+                .map(p => ({
+                    kelas: p.kelas,
+                    jamMulai: p.jamMulai,
+                    jamSelesai: p.jamSelesai,
+                    tanggalUjian: p.tanggalUjian || null
+                }))
+        });
+    } catch (e) {
+        res.status(500).json({ success: false, message: e.message });
+    }
+});
+// ─────────────────────────────────────────────────────────────────────────────
+
+
 app.post('/hapus-semua-siswa', (req, res) => {
     try {
         const count = db.get('siswa').value().length;
@@ -139,12 +263,45 @@ app.post('/hapus-semua-siswa', (req, res) => {
     }
 });
 
+// ─── ENDPOINT: Reset Factory — kembalikan ke kondisi awal ─────────────────────
+// Menghapus: semua bankSoal, semua paket ujian, semua data siswa
+// Mempertahankan: pengaturan sekolah dan tema
+app.post('/reset-factory', (req, res) => {
+    try {
+        const { konfirmasi } = req.body;
+        if (konfirmasi !== 'RESET FACTORY') {
+            return res.status(400).json({ success: false, message: 'Konfirmasi tidak valid' });
+        }
+        // Hapus bank soal
+        db.set('bankSoal', []).write();
+        // Reset konfigurasi ujian (paket kosong, settings default)
+        db.set('ujian', {
+            paket: [],
+            tampilkanNilai: true,
+            maxPelanggaran: 3,
+            pesanPelanggaran: 'Anda terdeteksi berpindah tab atau aplikasi. Ujian Anda dihentikan.',
+            deteksiPelanggaran: true,
+            alarmType: 'beep',
+            alarmDurasi: 3000,
+            acakSoal: false,
+            durasiPerPaket: true
+        }).write();
+        // Hapus semua data siswa
+        db.set('siswa', []).write();
+        flushCache();
+        console.log('[RESET FACTORY] Semua data direset ke kondisi awal');
+        res.json({ success: true, message: 'Reset factory berhasil. Semua data telah dihapus.' });
+    } catch (e) {
+        res.status(500).json({ success: false, message: e.message });
+    }
+});
+
 app.get('/admin/stats', (req, res) => {
     try {
         const siswa = db.get('siswa').value();
         const bankSoal = db.get('bankSoal').value();
-        const ujian = db.get('ujian').value();
-        const aktifpaket = db.get('paket').value();
+        const ujian = getUjianConfig(); // ← gunakan helper
+        const aktifpaket = (ujian.paket || []).filter(p => isPaketAktifSekarang(p)); // ← cek waktu real-time
         const selesai = siswa.filter(s => s.status === 'Selesai').length;
         const belum = siswa.filter(s => s.status !== 'Selesai' && s.status !== 'Diblokir').length;
         const diblokir = siswa.filter(s => s.status === 'Diblokir').length;
@@ -245,15 +402,36 @@ app.post('/simpan-semua-ujian', (req, res) => {
         if (!Array.isArray(paket)) return res.status(400).json({ success: false, message: 'Data tidak valid' });
         const banks = db.get('bankSoal').value();
         for (let item of paket) {
-            if (!banks.find(b => b.id === Number(item.paketId))) return res.status(400).json({ success: false, message: 'Paket ID ' + item.paketId + ' tidak ditemukan' });
+            const bankFound = banks.find(b => b.id === Number(item.paketId));
+            if (!bankFound) {
+                return res.status(400).json({
+                    success: false,
+                    message: `Bank soal dengan ID ${item.paketId} tidak ditemukan di database. ` +
+                             `Pastikan soal sudah diupload di menu Bank Soal, lalu hapus konfigurasi ini dan tambahkan ulang dengan memilih paket yang tersedia.`
+                });
+            }
             const bPG = Number(item.bobotPG) || 0, bEsai = Number(item.bobotEsai) || 0;
-            if (bPG + bEsai !== 100) return res.status(400).json({ success: false, message: 'Bobot harus 100%' });
+            if (bPG + bEsai !== 100) return res.status(400).json({ success: false, message: `Bobot paket "${bankFound.mapel}" harus total 100% (PG + Esai)` });
         }
+
+        // Normalisasi setiap paket sebelum disimpan
+        const normalizedPaket = paket.map(item => ({
+            paketId:      Number(item.paketId),
+            kelas:        (item.kelas || '').toString().trim(),
+            bobotPG:      Number(item.bobotPG) || 0,
+            bobotEsai:    Number(item.bobotEsai) || 0,
+            durasi:       Number(item.durasi) || 0,
+            jamMulai:     (item.jamMulai || '').toString().trim(),
+            jamSelesai:   (item.jamSelesai || '').toString().trim(),
+            tanggalUjian: (item.tanggalUjian || '').toString().trim(),
+            aktif:        item.aktif === true
+        }));
+
         if (durasi !== undefined) db.set('ujian.durasi', Math.max(1, Number(durasi))).write();
         if (tampilkanNilai !== undefined) db.set('ujian.tampilkanNilai', !!tampilkanNilai).write();
         if (acakSoal !== undefined) db.set('ujian.acakSoal', !!acakSoal).write();
         if (durasiPerPaket !== undefined) db.set('ujian.durasiPerPaket', !!durasiPerPaket).write();
-        db.set('ujian.paket', paket).write();
+        db.set('ujian.paket', normalizedPaket).write();
         flushCache();
         res.json({ success: true });
     } catch (e) {
@@ -265,6 +443,28 @@ app.post('/set-tampilkan-nilai', (req, res) => {
     db.set('ujian.tampilkanNilai', !!req.body.tampilkanNilai).write();
     flushCache(); res.json({ success: true });
 });
+
+// ─── ENDPOINT BARU: Toggle aktif/nonaktif per paket mapel ────────────────────
+// Dipanggil tombol "Aktif" / "Nonaktif" di tabel Jadwal Ujian per Mapel
+app.post('/toggle-aktif-paket', (req, res) => {
+    try {
+        const { paketId, aktif } = req.body;
+        if (paketId === undefined) return res.status(400).json({ success: false, message: 'paketId wajib diisi' });
+
+        const ujianConfig = getUjianConfig();
+        const paketList = ujianConfig.paket || [];
+        const idx = paketList.findIndex(p => String(p.paketId) === String(paketId));
+        if (idx === -1) return res.status(404).json({ success: false, message: 'Paket tidak ditemukan' });
+
+        paketList[idx].aktif = !!aktif;
+        db.set('ujian.paket', paketList).write();
+        flushCache();
+        res.json({ success: true, paketId, aktif: !!aktif });
+    } catch (e) {
+        res.status(500).json({ success: false, message: e.message });
+    }
+});
+// ─────────────────────────────────────────────────────────────────────────────
 
 app.post('/set-diblokir', (req, res) => {
     db.get('siswa').find({ id: req.body.userId }).assign({ status: 'Diblokir' }).write();
@@ -319,14 +519,37 @@ app.post('/login-siswa', (req, res) => {
         if (!username) return res.status(400).json({ success: false, message: 'NIS tidak boleh kosong!' });
 
         const user = db.get('siswa').find({ username: username }).value();
-        const ujianConfig = db.get('ujian').value();
+        const ujianConfig = getUjianConfig(); // ← gunakan helper yang aman
 
         if (!user) return res.status(404).json({ success: false, message: 'NIS tidak ditemukan!' });
         if (user.status === 'Selesai') return res.status(403).json({ success: false, message: 'Anda sudah mengerjakan ujian ini!' });
         if (user.status === 'Diblokir') return res.status(403).json({ success: false, message: 'Ujian Anda diblokir karena pelanggaran. Hubungi admin.' });
 
-        const paketForKelas = (ujianConfig.paket || []).find(p => p.kelas === user.kelas);
-        if (!paketForKelas) return res.status(400).json({ success: false, message: 'Belum ada ujian aktif untuk kelas ' + user.kelas });
+        // ── FILTER GANDA: aktif (admin) + waktu server real-time ─────────────────
+        // Langkah 1: ambil semua paket untuk kelas siswa ini
+        const semuaPaketKelas = (ujianConfig.paket || []).filter(p => p.kelas === user.kelas);
+        if (!semuaPaketKelas.length) {
+            return res.status(400).json({ success: false, message: 'Belum ada konfigurasi ujian untuk kelas ' + user.kelas });
+        }
+
+        // Langkah 2: dari yang ada, saring hanya yang aktif=true oleh admin
+        const paketDiaktifkanAdmin = semuaPaketKelas.filter(p => p.aktif === true);
+        if (!paketDiaktifkanAdmin.length) {
+            return res.status(400).json({ success: false, message: 'Belum ada ujian aktif untuk kelas ' + user.kelas });
+        }
+
+        // Langkah 3: dari yang aktif, cari yang waktunya TEPAT sekarang
+        const paketForKelas = paketDiaktifkanAdmin.find(p => isPaketAktifSekarang(p));
+        if (!paketForKelas) {
+            // Ada yang aktif tapi belum/sudah lewat waktunya — tampilkan jadwal HANYA dari paket aktif
+            const p = paketDiaktifkanAdmin[0];
+            const jadwalTanggal = p.tanggalUjian ? ` pada ${p.tanggalUjian}` : '';
+            return res.status(400).json({
+                success: false,
+                message: `Ujian kelas ${user.kelas} dijadwalkan pukul ${p.jamMulai}–${p.jamSelesai}${jadwalTanggal}. Silakan tunggu.`
+            });
+        }
+        // ─────────────────────────────────────────────────────────────────────────
 
         const paketSoal = db.get('bankSoal').find({ id: Number(paketForKelas.paketId) }).value();
         if (!paketSoal) return res.status(400).json({ success: false, message: 'Paket soal tidak ditemukan' });
@@ -376,7 +599,7 @@ app.post('/simpan-hasil', (req, res) => {
         const siswa = db.get('siswa').find({ id: userId }).value();
         if (!siswa) return res.status(404).json({ success: false, message: 'Siswa tidak ditemukan' });
         if (siswa.status === 'Diblokir') return res.status(403).json({ success: false, message: 'Siswa diblokir' });
-        const ujian = db.get('ujian').value();
+        const ujian = getUjianConfig();
         const pg = Number(nilaiOtomatis) || 0;
         const cfg = (ujian.paket || []).find(p => p.paketId == paketId && p.kelas === siswa.kelas);
         const bPG = cfg ? Number(cfg.bobotPG || 60) : 60;
@@ -408,7 +631,7 @@ app.post('/update-nilai-esai', (req, res) => {
         const { id, nilaiEsai } = req.body;
         const siswa = db.get('siswa').find({ id: id }).value();
         if (!siswa) return res.status(404).json({ success: false, message: 'Siswa tidak ditemukan' });
-        const ujian = db.get('ujian').value();
+        const ujian = getUjianConfig();
         const pg = Number(siswa.nilaiOtomatis) || 0;
         const esai = Math.min(100, Math.max(0, Number(nilaiEsai) || 0));
         const cfg = (ujian.paket || []).find(p => p.paketId == siswa.paketId && p.kelas === siswa.kelas);
@@ -425,7 +648,7 @@ app.post('/log-pelanggaran', (req, res) => {
         const { userId } = req.body;
         const siswa = db.get('siswa').find({ id: userId }).value();
         if (!siswa) return res.status(404).json({ success: false, message: 'Siswa tidak ditemukan' });
-        const ujian = db.get('ujian').value();
+        const ujian = getUjianConfig();
         if (ujian.deteksiPelanggaran === false) return res.json({ success: true, blocked: false, count: 0, max: 0, disabled: true });
         if (siswa.status === 'Diblokir') return res.json({ success: true, blocked: true, count: siswa.pelanggaran || 0 });
         if (siswa.status === 'Selesai') return res.json({ success: true, blocked: false, count: siswa.pelanggaran || 0 });

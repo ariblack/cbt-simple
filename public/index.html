@@ -448,8 +448,35 @@ function handleLogin(e) {
     });
 }
 
+// ── Cek apakah ada ujian aktif saat halaman dibuka ─────────────────────────
+function checkUjianStatus() {
+    return fetchWithTimeout('/status-ujian')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            if (!data.success) return;
+            // Hanya tampilkan info jika ada jadwal berikutnya yang VALID (tanggal hari ini atau tanpa tanggal)
+            if (!data.adaUjianAktif && data.jadwalBerikutnya && data.jadwalBerikutnya.length) {
+                var today = new Date().toISOString().slice(0, 10);
+                // Filter: hanya jadwal hari ini atau tanpa tanggal (jadwal masa lalu diabaikan)
+                var jadwalValid = data.jadwalBerikutnya.filter(function(j) {
+                    return !j.tanggalUjian || j.tanggalUjian >= today;
+                });
+                if (jadwalValid.length) {
+                    var j = jadwalValid[0];
+                    var tanggalInfo = j.tanggalUjian ? ' pada ' + j.tanggalUjian : '';
+                    showToast(
+                        'Ujian dijadwalkan pukul ' + j.jamMulai + '–' + j.jamSelesai + tanggalInfo + '. Harap tunggu.',
+                        'info'
+                    );
+                }
+            }
+        })
+        .catch(function() { /* abaikan jika endpoint belum ada */ });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     loadSettings().then(function() {
+        checkUjianStatus(); // cek info jadwal
         setTimeout(function() {
             var UsernameInput = document.getElementById('UsernameInput');
             if (UsernameInput) UsernameInput.focus();

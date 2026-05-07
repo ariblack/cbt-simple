@@ -1,0 +1,1181 @@
+{
+  "siswa": [
+    {
+      "id": "1777534064034bicv",
+      "username": "1001",
+      "nama": "Anam",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "B",
+        "1": "C"
+      }
+    },
+    {
+      "id": "1777534064038kum1",
+      "username": "1002",
+      "nama": "Anis",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "Dari hasil cahaya matahari ",
+        "1": "B",
+        "2": "B",
+        "3": "A,C",
+        "4": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        }
+      }
+    },
+    {
+      "id": "177753406403995fp",
+      "username": "1003",
+      "nama": "Ambar",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "1": "A,C",
+        "2": "B",
+        "3": "B"
+      }
+    },
+    {
+      "id": "1777534064040mt7y",
+      "username": "1004",
+      "nama": "Anggie",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "B",
+        "1": "B",
+        "2": "fotosintesis membantumu berkembsngnys"
+      }
+    },
+    {
+      "id": "17775340640404e5q",
+      "username": "1005",
+      "nama": "Budi",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "1": "B",
+        "2": "A,C",
+        "3": "proses pertum"
+      }
+    },
+    {
+      "id": "1777534064041aslc",
+      "username": "1006",
+      "nama": "Bondan",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "1": "B",
+        "2": "Proses pertumbuhan tanaman"
+      }
+    },
+    {
+      "id": "1777534064041u3of",
+      "username": "1007",
+      "nama": "Bagus",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "Masa pertumbuhan tanaman ",
+        "1": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "2": "A,C",
+        "3": "B"
+      }
+    },
+    {
+      "id": "1777534064042pxuj",
+      "username": "1008",
+      "nama": "Bintang",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": {
+          "1": "C",
+          "2": "B",
+          "3": "A"
+        },
+        "1": "B,D",
+        "2": "Pertumbuhan tanaman"
+      }
+    },
+    {
+      "id": "1777534064042fkca",
+      "username": "1009",
+      "nama": "Cika",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "A",
+        "1": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "2": "B",
+        "3": "D",
+        "4": "Hewan sapi monyet "
+      }
+    },
+    {
+      "id": "1777534064043fl69",
+      "username": "1010",
+      "nama": "Cici",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": {
+          "1": "A",
+          "2": "B",
+          "3": "C"
+        },
+        "1": "B,C",
+        "2": "C",
+        "3": "A",
+        "4": "Jelas apa yang  di maksud  dengan  fotosintesis pada  tumbuhan yaitu"
+      }
+    },
+    {
+      "id": "1777534064044kecc",
+      "username": "1011",
+      "nama": "Cantika",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "B",
+        "1": "A,C",
+        "2": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "3": "proses biologis dimana tumbuhan hijau,alga,dan beberapa bakteri menggunakan energi cahaya matahari untuk mengubah air(H2o) dan karbon dioksida (CO2) menjadi glukosa(karbohidrat)dan oksigen(O2)",
+        "4": "A"
+      }
+    },
+    {
+      "id": "1777534064044mhwu",
+      "username": "1012",
+      "nama": "Cempaka",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "proses biologis dimana tumbuhan hijau,alga,dan beberapa bakteri menggunakan energi cahata matahari untuk mengubah air(H2o)dan karbon dioksida(CO2) menjadi glukosa(karbohidrat)dan oksigen(O2)",
+        "1": "A",
+        "2": "B",
+        "3": "A",
+        "4": {
+          "1": "C"
+        }
+      }
+    },
+    {
+      "id": "1777534064044cqfh",
+      "username": "1013",
+      "nama": "Dara",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "Proses tunggi badan",
+        "1": "B",
+        "2": "A,C",
+        "3": {
+          "1": "C"
+        }
+      }
+    },
+    {
+      "id": "1777534064044f4ur",
+      "username": "1014",
+      "nama": "Desi",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false
+    },
+    {
+      "id": "1777534064044390f",
+      "username": "1015",
+      "nama": "Danang",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "1": "B",
+        "2": "B",
+        "3": "A",
+        "4": ""
+      }
+    },
+    {
+      "id": "1777534064045hdmn",
+      "username": "1016",
+      "nama": "Dimas",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "B",
+        "1": "A,C",
+        "2": "dari sinar matahari ",
+        "3": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "4": "A"
+      }
+    },
+    {
+      "id": "17775340640458ou0",
+      "username": "1017",
+      "nama": "Edi",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "B",
+        "1": "A",
+        "2": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        },
+        "3": "dari sinar matahari",
+        "4": "A,C"
+      }
+    },
+    {
+      "id": "1777534064045h6gr",
+      "username": "1018",
+      "nama": "Endang",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "A",
+        "1": "B",
+        "2": "Pertumbuhan",
+        "3": "A,C",
+        "4": {
+          "1": "C",
+          "2": "A"
+        }
+      }
+    },
+    {
+      "id": "1777534064045v9p5",
+      "username": "1019",
+      "nama": "Eman",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "A",
+        "1": "B",
+        "2": "proses biologis dimana tumbuhan hijau,alga,dan beberapa bakteri menggunakan energi cahaya matahari untuh mengubah air(H2o) dan karbon dioksida(CO2) menjadi glukosa (karbohidrat) dan oksigen (O2)",
+        "3": {
+          "1": "C",
+          "2": "A",
+          "3": "B"
+        }
+      }
+    },
+    {
+      "id": "1777534064045igo5",
+      "username": "1020",
+      "nama": "Elang",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false,
+      "jawabanAutoSave": {
+        "0": "B",
+        "1": "A",
+        "2": "dari matahari"
+      }
+    },
+    {
+      "id": "177804471730537bd",
+      "username": "1000001",
+      "nama": "SDSDSDSADSA",
+      "kelas": "X",
+      "status": "Belum",
+      "nilaiOtomatis": 0,
+      "nilaiEsai": 0,
+      "totalNilai": 0,
+      "na": 0,
+      "jawabanSiswa": {},
+      "paketId": null,
+      "pelanggaran": 0,
+      "logPelanggaran": [],
+      "selesaiOtomatis": false
+    }
+  ],
+  "bankSoal": [
+    {
+      "id": 1777533851165,
+      "mapel": "SIMULASI ",
+      "kelas": "X",
+      "daftarSoal": [
+        {
+          "id": 1777533851161.5642,
+          "konten": "</strong> Ibu kota negara Indonesia saat ini adalah...",
+          "pilihan": [
+            "Surabaya",
+            "Jakarta",
+            "Bandung",
+            "Medan"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1777533851165.7117,
+          "konten": "</strong> Manakah yang merupakan komponen perangkat keras komputer? (Jawaban lebih dari satu)",
+          "pilihan": [
+            "CPU",
+            "Windows",
+            "RAM",
+            "Microsoft Office"
+          ],
+          "kunci": "A,C"
+        },
+        {
+          "id": 1777533851165.808,
+          "konten": "</strong>  <img alt=\"C:\\Users\\PC\\AppData\\Local\\Microsoft\\Windows\\INetCache\\Content.MSO\\C9CA9449.tmp\" src=\"/images/1777533851155-853am1.png\" />Pernyataan: Matahari terbit dari sebelah barat.",
+          "pilihan": [
+            "Benar",
+            "Salah"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1777533851165.3208,
+          "konten": "Pasangkanlah ibukota provinsi berikut ini dengan benar: | Indonesia | Jepang | Prancis |",
+          "pilihan": [
+            "Tokyo",
+            "Paris",
+            "Jakarta"
+          ],
+          "kunci": "1-C,2-A,3-B"
+        },
+        {
+          "id": 1777533851165.5823,
+          "konten": "</strong> Jelaskan apa yang dimaksud dengan fotosintesis pada tumbuhan!",
+          "pilihan": [],
+          "kunci": "ESAI"
+        }
+      ]
+    },
+    {
+      "id": 1778044619636,
+      "mapel": "Informatika",
+      "kelas": "X",
+      "daftarSoal": [
+        {
+          "id": 1778044619636.5332,
+          "konten": "Di bawah ini yang merupakan ikon untuk membuat dokumen baru di Microsoft Word adalah...",
+          "pilihan": [
+            "Open",
+            "New",
+            "Layout",
+            "Design"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.8535,
+          "konten": "Tab yang digunakan untuk menyisipkan objek berupa tabel atau gambar adalah...",
+          "pilihan": [
+            "File",
+            "Home",
+            "Insert",
+            "View"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.7822,
+          "konten": "Perintah cepat (shortcut) untuk menebalkan teks adalah...",
+          "pilihan": [
+            "Ctrl + I",
+            "Ctrl + B",
+            "Ctrl + U",
+            "Ctrl + Z"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.142,
+          "konten": "Jika ingin mengatur spasi baris menjadi 1.5, maka fitur yang dicari berada pada grup...",
+          "pilihan": [
+            "Font",
+            "Editing",
+            "Styles",
+            "Paragraph"
+          ],
+          "kunci": "D"
+        },
+        {
+          "id": 1778044619636.732,
+          "konten": "Pertemuan antara baris (row) dan kolom (column) pada Excel disebut...",
+          "pilihan": [
+            "Sheet",
+            "Range",
+            "Cell",
+            "Workbook"
+          ],
+          "kunci": "C"
+        },
+        {
+          "id": 1778044619636.0654,
+          "konten": "Simbol yang wajib diketikkan sebelum memasukkan rumus di Excel adalah...",
+          "pilihan": [
+            "+",
+            "=",
+            "@",
+            "*"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.7825,
+          "konten": "Header dan Footer di Word sangat berguna ketika kita ingin membuat...",
+          "pilihan": [
+            "Tabel data",
+            "Grafik batang",
+            "Kop surat atau nomor halaman",
+            "Animasi teks"
+          ],
+          "kunci": "C"
+        },
+        {
+          "id": 1778044619636.8486,
+          "konten": "Menu untuk mengubah jenis huruf (Font Face) terletak pada tab...",
+          "pilihan": [
+            "Home",
+            "Page Layout",
+            "Mailings",
+            "Review"
+          ],
+          "kunci": "A"
+        },
+        {
+          "id": 1778044619636.8015,
+          "konten": "Fungsi Excel untuk menghitung total jumlah dari beberapa sel sekaligus adalah...",
+          "pilihan": [
+            "AVERAGE",
+            "COUNT",
+            "SUM",
+            "MAX"
+          ],
+          "kunci": "C"
+        },
+        {
+          "id": 1778044619636.948,
+          "konten": "Untuk memberikan garis tepi pada tabel di Excel agar terlihat rapi, kita menggunakan fitur...",
+          "pilihan": [
+            "Fill Color",
+            "Borders",
+            "Wrap Text",
+            "Merge &amp; Center"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.589,
+          "konten": "Pilihan \"Save As\" digunakan saat kita ingin...",
+          "pilihan": [
+            "Mencetak dokumen",
+            "Menutup aplikasi",
+            "Menyimpan file dengan nama baru atau di lokasi berbeda",
+            "Menghapus file secara permanen"
+          ],
+          "kunci": "C"
+        },
+        {
+          "id": 1778044619636.594,
+          "konten": "Kolom pada Microsoft Excel ditandai dengan...",
+          "pilihan": [
+            "Angka (1, 2, 3)",
+            "Huruf (A, B, C)",
+            "Simbol (!, @, #)",
+            "Warna"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.6611,
+          "konten": "Perataan teks yang membuat sisi kiri dan kanan dokumen sejajar disebut...",
+          "pilihan": [
+            "Align Left",
+            "Align Right",
+            "Center",
+            "Justify"
+          ],
+          "kunci": "D"
+        },
+        {
+          "id": 1778044619636.404,
+          "konten": "Fitur \"Line Spacing\" berfungsi untuk...",
+          "pilihan": [
+            "Memberi jarak antar kata",
+            "Memberi jarak antar baris kalimat",
+            "Menambah halaman baru",
+            "Membuat huruf kapital"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.739,
+          "konten": "Rumus perkalian sel A1 dan B1 yang benar adalah...",
+          "pilihan": [
+            "=A1*B1",
+            "=A1xB1",
+            "=SUM(A1B1)",
+            "=A1+B1"
+          ],
+          "kunci": "A"
+        },
+        {
+          "id": 1778044619636.8135,
+          "konten": "Bagian Microsoft Word yang menunjukkan nama file yang sedang aktif adalah...",
+          "pilihan": [
+            "Status Bar",
+            "Title Bar",
+            "Scroll Bar",
+            "Menu Bar"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.2515,
+          "konten": "Untuk membuat teks menjadi miring (Italic), kita menggunakan ikon...",
+          "pilihan": [
+            "B",
+            "I",
+            "U",
+            "S"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.389,
+          "konten": "Menu \"Table\" di Microsoft Word terdapat pada tab...",
+          "pilihan": [
+            "Insert",
+            "Home",
+            "Draw",
+            "Design"
+          ],
+          "kunci": "A"
+        },
+        {
+          "id": 1778044619636.3838,
+          "konten": "Saat membuat surat resmi, pengaturan margin dapat ditemukan pada tab...",
+          "pilihan": [
+            "Layout / Page Layout",
+            "Review",
+            "View",
+            "References"
+          ],
+          "kunci": "A"
+        },
+        {
+          "id": 1778044619636.679,
+          "konten": "Fungsi AVERAGE pada Excel digunakan untuk mencari...",
+          "pilihan": [
+            "Nilai tertinggi",
+            "Nilai terendah",
+            "Nilai rata-rata",
+            "Jumlah sel yang terisi"
+          ],
+          "kunci": "C"
+        },
+        {
+          "id": 1778044619636.426,
+          "konten": "Cara cepat menyeleksi seluruh teks di Word adalah...",
+          "pilihan": [
+            "Ctrl + S",
+            "Ctrl + A",
+            "Ctrl + P",
+            "Ctrl + V"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.5603,
+          "konten": "Pada Excel, baris (row) ditandai dengan...",
+          "pilihan": [
+            "Huruf",
+            "Angka",
+            "Titik",
+            "Tanda koma"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.1978,
+          "konten": "Ikon \"Font Color\" berfungsi untuk...",
+          "pilihan": [
+            "Memberi warna pada teks",
+            "Memberi warna latar belakang kertas",
+            "Menebalkan garis tabel",
+            "Mengubah ukuran teks"
+          ],
+          "kunci": "A"
+        },
+        {
+          "id": 1778044619636.9258,
+          "konten": "Rumus pembagian di Excel menggunakan operator...",
+          "pilihan": [
+            ":",
+            "/",
+            ";",
+            "-"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.6765,
+          "konten": "Jika ingin menggabungkan beberapa sel menjadi satu di Excel, gunakan fitur...",
+          "pilihan": [
+            "Wrap Text",
+            "Format Painter",
+            "Merge &amp; Center",
+            "AutoSum"
+          ],
+          "kunci": "C"
+        },
+        {
+          "id": 1778044619636.9126,
+          "konten": "Untuk mencetak dokumen yang sudah dibuat, menu yang diakses adalah...",
+          "pilihan": [
+            "File &gt; Print",
+            "File &gt; Save",
+            "File &gt; Share",
+            "File &gt; Export"
+          ],
+          "kunci": "A"
+        },
+        {
+          "id": 1778044619636.8286,
+          "konten": "Tab \"References\" di Word biasanya digunakan untuk membuat...",
+          "pilihan": [
+            "Gambar",
+            "Tabel",
+            "Daftar isi atau catatan kaki",
+            "Grafik"
+          ],
+          "kunci": "C"
+        },
+        {
+          "id": 1778044619636.818,
+          "konten": "Nama file default saat pertama kali membuka Excel adalah...",
+          "pilihan": [
+            "Document1",
+            "Presentation1",
+            "Book1",
+            "Sheet1"
+          ],
+          "kunci": "C"
+        },
+        {
+          "id": 1778044619636.1074,
+          "konten": "Penulisan rumus SUM yang benar untuk menjumlahkan sel A1 sampai A10 adalah...",
+          "pilihan": [
+            "=SUM(A1;A10)",
+            "=SUM(A1:A10)",
+            "=SUM(A1+A10)",
+            "=TOTAL(A1:A10)"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.0679,
+          "konten": "Agar teks berada tepat di tengah-tengah halaman, gunakan fitur...",
+          "pilihan": [
+            "Align Left",
+            "Center",
+            "Align Right",
+            "Justify"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.5415,
+          "konten": "Langkah untuk menyisipkan gambar dari komputer ke Word adalah...",
+          "pilihan": [
+            "Insert &gt; Shapes",
+            "Insert &gt; Pictures",
+            "Insert &gt; Icons",
+            "Insert &gt; Chart"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.2278,
+          "konten": "Ekstensi file standar untuk Microsoft Word versi terbaru adalah...",
+          "pilihan": [
+            "xlsx",
+            "pptx",
+            "docx",
+            "pdf"
+          ],
+          "kunci": "C"
+        },
+        {
+          "id": 1778044619636.4294,
+          "konten": "Fitur \"Undo\" digunakan untuk...",
+          "pilihan": [
+            "Mengulang perintah",
+            "Membatalkan perintah terakhir",
+            "Menyimpan dokumen",
+            "Menghapus paragraf"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.4421,
+          "konten": "Di Excel, untuk mengubah format angka menjadi mata uang (Rupiah), kita menggunakan...",
+          "pilihan": [
+            "Font",
+            "Number Format (Currency)",
+            "Styles",
+            "Alignment"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.095,
+          "konten": "Tab \"View\" di Microsoft Word berfungsi untuk...",
+          "pilihan": [
+            "Mengatur tampilan dokumen (seperti Zoom)",
+            "Menulis rumus matematika",
+            "Memasukkan video",
+            "Mengirim email"
+          ],
+          "kunci": "A"
+        },
+        {
+          "id": 1778044619636.1594,
+          "konten": "Shortcut untuk menyalin (copy) teks adalah...",
+          "pilihan": [
+            "Ctrl + X",
+            "Ctrl + V",
+            "Ctrl + C",
+            "Ctrl + N"
+          ],
+          "kunci": "C"
+        },
+        {
+          "id": 1778044619636.8643,
+          "konten": "Rumus pengurangan di Excel yang benar adalah...",
+          "pilihan": [
+            "=B5-B2",
+            "=MIN(B5:B2)",
+            "=SUB(B5;B2)",
+            "=B5:B2"
+          ],
+          "kunci": "A"
+        },
+        {
+          "id": 1778044619636.6245,
+          "konten": "Untuk memindahkan teks (Cut), kita menggunakan shortcut...",
+          "pilihan": [
+            "Ctrl + X",
+            "Ctrl + C",
+            "Ctrl + P",
+            "Ctrl + S"
+          ],
+          "kunci": "A"
+        },
+        {
+          "id": 1778044619636.8716,
+          "konten": "Agar posisi tabel di Word tidak berantakan saat dipindah, kita bisa mengatur...",
+          "pilihan": [
+            "Font Size",
+            "Layout &gt; Wrap Text",
+            "Page Number",
+            "Header"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.7476,
+          "konten": "Fungsi \"Find\" di Microsoft Word berguna untuk...",
+          "pilihan": [
+            "Mengganti warna teks",
+            "Mencari kata atau kalimat tertentu dalam dokumen",
+            "Mencari file yang hilang",
+            "Menghapus halaman kosong"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.3425,
+          "konten": "Shortcut untuk menempel (paste) hasil salinan adalah...",
+          "pilihan": [
+            "Ctrl + P",
+            "Ctrl + V",
+            "Ctrl + Z",
+            "Ctrl + Y"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.3035,
+          "konten": "\"Orientation\" pada Page Layout digunakan untuk...",
+          "pilihan": [
+            "Mengubah ukuran kertas",
+            "Mengatur posisi kertas (Portrait atau Landscape)",
+            "Memberi warna pada kertas",
+            "Membuat kolom koran"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.1543,
+          "konten": "Rumus \"=MAX(B1:B10)\" di Excel berfungsi untuk...",
+          "pilihan": [
+            "Mencari rata-rata",
+            "Mencari nilai terkecil",
+            "Mencari nilai terbesar",
+            "Menjumlahkan semua nilai"
+          ],
+          "kunci": "C"
+        },
+        {
+          "id": 1778044619636.5137,
+          "konten": "Shortcut untuk menyimpan (save) dokumen secara cepat adalah...",
+          "pilihan": [
+            "Ctrl + S",
+            "Ctrl + O",
+            "Ctrl + N",
+            "Ctrl + W"
+          ],
+          "kunci": "A"
+        },
+        {
+          "id": 1778044619636.291,
+          "konten": "Ikon \"Bulleted List\" di Word digunakan untuk...",
+          "pilihan": [
+            "Membuat tabel",
+            "Membuat daftar dengan simbol atau poin",
+            "Memberi nomor urut otomatis",
+            "Menghapus teks"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.2104,
+          "konten": "Rumus \"=COUNT(C1:C20)\" digunakan untuk...",
+          "pilihan": [
+            "Menghitung jumlah total nilai",
+            "Menghitung banyak sel yang berisi angka",
+            "Menghitung rata-rata",
+            "Menghitung sel yang kosong"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.8625,
+          "konten": "Saat bekerja dengan data yang sangat lebar di Excel, kita sebaiknya mengatur kertas menjadi...",
+          "pilihan": [
+            "Portrait",
+            "Landscape",
+            "Square",
+            "Small"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.8867,
+          "konten": "Untuk memperbesar atau memperkecil tampilan halaman, kita menggunakan fitur...",
+          "pilihan": [
+            "Scroll Bar",
+            "Zoom Slider",
+            "Task Bar",
+            "Ribbon"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.617,
+          "konten": "Ikon \"Underline\" (U) di Word berfungsi untuk...",
+          "pilihan": [
+            "Membuat teks miring",
+            "Memberi garis bawah pada teks",
+            "Mencoret teks",
+            "Membuat teks jadi kecil"
+          ],
+          "kunci": "B"
+        },
+        {
+          "id": 1778044619636.8271,
+          "konten": "Software Microsoft Excel sangat cocok digunakan untuk pekerjaan...",
+          "pilihan": [
+            "Menulis surat",
+            "Mengolah data angka dan tabel",
+            "Membuat presentasi slide",
+            "Mengedit foto"
+          ],
+          "kunci": "B"
+        }
+      ]
+    }
+  ],
+  "ujian": {
+    "paket": [
+      {
+        "paketId": 1777533851165,
+        "kelas": "X",
+        "bobotPG": 100,
+        "bobotEsai": 0,
+        "durasi": 60,
+        "jamMulai": "12:35:00",
+        "jamSelesai": "13:35:00",
+        "aktif": true,
+        "tanggalUjian": "2026-05-08"
+      }
+    ],
+    "tampilkanNilai": false,
+    "maxPelanggaran": 3,
+    "pesanPelanggaran": "Anda terdeteksi curang, silakan lapor ke pengawas",
+    "deteksiPelanggaran": true,
+    "alarmType": "warning",
+    "alarmDurasi": 5500,
+    "acakSoal": true,
+    "durasiPerPaket": true
+  },
+  "pengaturan": {
+    "namaSekolah": "SMK PEMBANGUNAN SURABAYA",
+    "namaAplikasi": "SIMULASI SAS",
+    "ukuranSekolah": 23,
+    "ukuranAplikasi": 17,
+    "tema": "blue",
+    "temaLogin": "green",
+    "layoutLogin": "modern"
+  },
+  "admin": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123",
+      "nama": "Administrator",
+      "role": "superadmin",
+      "email": "admin@smkpembangunan.sch.id",
+      "aktif": true
+    },
+    {
+      "id": "2",
+      "username": "guru1",
+      "password": "guru123",
+      "nama": "Guru Pengawas",
+      "role": "admin",
+      "email": "guru1@smkpembangunan.sch.id",
+      "aktif": true
+    }
+  ]
+}
