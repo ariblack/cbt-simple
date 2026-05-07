@@ -954,12 +954,44 @@
                 renderExam();
                 startTimer();
                 startAutosave();
+                startUjianActiveCheck(); // ← cek status ujian aktif tiap 60 detik
                 showLoading(false);
             } catch (e) { 
                 console.error(e); 
                 alert('Terjadi kesalahan. Silakan login kembali.'); 
                 window.location.href = '/'; 
             }
+        }
+
+        // ── VALIDASI UJIAN AKTIF: cek ke server setiap 60 detik ──────────────────
+        // Jika admin menonaktifkan ujian saat siswa sedang mengerjakan,
+        // siswa akan diberi peringatan dan diarahkan kembali ke halaman login.
+        function startUjianActiveCheck() {
+            if (!state.user || !state.user.kelas) return;
+            setInterval(() => {
+                if (state.submitted || state.blocked) return;
+                fetch('/status-ujian?kelas=' + encodeURIComponent(state.user.kelas))
+                    .then(r => r.json())
+                    .then(data => {
+                        if (data.success && !data.adaUjianAktif && !state.submitted) {
+                            state.blocked = true;
+                            clearInterval(state.timerInterval);
+                            sessionStorage.clear();
+                            // Tampilkan modal peringatan sebelum redirect
+                            var overlay = document.getElementById('loadingOverlay');
+                            if (overlay) {
+                                overlay.style.display = 'flex';
+                                overlay.innerHTML = '<div style="background:#fff;padding:32px 28px;border-radius:16px;text-align:center;max-width:360px">' +
+                                    '<div style="font-size:2.5rem;margin-bottom:12px">🔒</div>' +
+                                    '<h3 style="color:#b91c1c;margin-bottom:10px">Ujian Dihentikan</h3>' +
+                                    '<p style="color:#555;margin-bottom:20px">Ujian untuk kelas Anda telah dinonaktifkan oleh pengawas.<br>Hubungi pengawas ujian.</p>' +
+                                    '<small style="color:#999">Halaman akan berpindah dalam 5 detik...</small></div>';
+                            }
+                            setTimeout(() => { window.location.href = '/'; }, 5000);
+                        }
+                    })
+                    .catch(() => { /* abaikan error jaringan sementara */ });
+            }, 60000); // cek setiap 60 detik
         }
 
         function startAutosave() {
